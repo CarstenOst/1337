@@ -68,7 +68,9 @@ class BasicWorldDemo {
         ]);
         this._scene.background = texture;
 
-        const plane = new THREE.Mesh(
+
+        //her kommer bakken
+        /*const plane = new THREE.Mesh(
             new THREE.PlaneGeometry(100, 100, 10, 10),
             new THREE.MeshStandardMaterial({
                 color: 0xFFFFFF,
@@ -88,14 +90,16 @@ class BasicWorldDemo {
         box.receiveShadow = true;
         this._scene.add(box);
 
-        for (let x = -8; x < 8; x++) {
-            for (let y = -8; y < 8; y++) {
+*/
+       //boxesesesese
+        for (let x = -80; x < 80; x++) {
+            for (let y = -80; y < 80; y++) {
                 const box = new THREE.Mesh(
-                    new THREE.BoxGeometry(2, 2, 2),
+                    new THREE.BoxGeometry(5, 5, 5),
                     new THREE.MeshStandardMaterial({
                         color: 0x808080,
                     }));
-                box.position.set(Math.random() + x * 5, Math.random() * 4.0 + 2.0, Math.random() + y * 5);
+                box.position.set(x * 10, 10.0, y * 10);
                 box.castShadow = true;
                 box.receiveShadow = true;
                 this._scene.add(box);
