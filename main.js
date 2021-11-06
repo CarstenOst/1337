@@ -1,6 +1,7 @@
-import * as THREE from './three';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.118/build/three.module.js';
 
-import { OrbitControls } from './three/examples/jsm/controls/OrbitControls.js';
+import {OrbitControls} from 'https://cdn.jsdelivr.net/npm/three@0.118/examples/jsm/controls/OrbitControls.js';
+
 
 class BasicWorldDemo {
     constructor() {
@@ -14,13 +15,14 @@ class BasicWorldDemo {
         this._threejs.shadowMap.enabled = true;
         this._threejs.shadowMap.type = THREE.PCFSoftShadowMap;
         this._threejs.setPixelRatio(window.devicePixelRatio);
-        this._threejs.setSize(window.innerWidth, window.innerHeight)
+        this._threejs.setSize(window.innerWidth, window.innerHeight);
 
         document.body.appendChild(this._threejs.domElement);
 
-        window.addEventListener('rezise', ()=> {
+        window.addEventListener('resize', () => {
             this._OnWindowResize();
         }, false);
+
         const fov = 60;
         const aspect = 1920 / 1080;
         const near = 1.0;
@@ -30,7 +32,7 @@ class BasicWorldDemo {
 
         this._scene = new THREE.Scene();
 
-        let light = new THREE.DirectionalLigth (0xFFFFFF, 1.0);
+        let light = new THREE.DirectionalLight(0xFFFFFF, 1.0);
         light.position.set(20, 100, 10);
         light.target.position.set(0, 0, 0);
         light.castShadow = true;
@@ -38,7 +40,9 @@ class BasicWorldDemo {
         light.shadow.mapSize.width = 2048;
         light.shadow.mapSize.height = 2048;
         light.shadow.camera.near = 0.1;
-        light.shadow.camera.far = 500;
+        light.shadow.camera.far = 500.0;
+        light.shadow.camera.near = 0.5;
+        light.shadow.camera.far = 500.0;
         light.shadow.camera.left = 100;
         light.shadow.camera.right = -100;
         light.shadow.camera.top = 100;
@@ -55,15 +59,15 @@ class BasicWorldDemo {
 
         const loader = new THREE.CubeTextureLoader();
         const texture = loader.load([
-            './skybox/BendikHårlandBG.PNG',
-            './skybox/BendikSanderHårland.png',
-            './skybox/Skjermbilde.PNG',
-            './skybox/BendikHårlandBG.PNG',
-            './skybox/BendikSanderHårland.png',
-            './skybox/Skjermbilde.PNG',
+            './skybox/BendikHårlandBG.jpg',
+            './skybox/BendikSanderHårland.jpg',
+            './skybox/Skjermbilde.jpg',
+            './skybox/BendikHårlandBG.jpg',
+            './skybox/BendikSanderHårland.jpg',
+            './skybox/Skjermbilde.jpg',
         ]);
-
         this._scene.background = texture;
+
         const plane = new THREE.Mesh(
             new THREE.PlaneGeometry(100, 100, 10, 10),
             new THREE.MeshStandardMaterial({
@@ -98,14 +102,28 @@ class BasicWorldDemo {
             }
         }
 
+        // const box = new THREE.Mesh(
+        //   new THREE.SphereGeometry(2, 32, 32),
+        //   new THREE.MeshStandardMaterial({
+        //       color: 0xFFFFFF,
+        //       wireframe: true,
+        //       wireframeLinewidth: 4,
+        //   }));
+        // box.position.set(0, 0, 0);
+        // box.castShadow = true;
+        // box.receiveShadow = true;
+        // this._scene.add(box);
+
         this._RAF();
     }
-    _OnWindowResize(){
+
+    _OnWindowResize() {
         this._camera.aspect = window.innerWidth / window.innerHeight;
-        this._camera.updateProjectMatrix();
+        this._camera.updateProjectionMatrix();
         this._threejs.setSize(window.innerWidth, window.innerHeight);
     }
-    _RAF(){
+
+    _RAF() {
         requestAnimationFrame(() => {
             this._threejs.render(this._scene, this._camera);
             this._RAF();
@@ -113,8 +131,10 @@ class BasicWorldDemo {
     }
 }
 
+
 let _APP = null;
 
 window.addEventListener('DOMContentLoaded', () => {
     _APP = new BasicWorldDemo();
 });
+
