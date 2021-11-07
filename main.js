@@ -33,7 +33,7 @@ class BasicWorldDemo {
         this._scene = new THREE.Scene();
 
         let light = new THREE.DirectionalLight(0xFFFFFF, 1.0);
-        light.position.set(20, 100, 10);
+        light.position.set(20, 20, 10);
         light.target.position.set(0, 0, 0);
         light.castShadow = true;
         light.shadow.bias = -0.001;
@@ -70,7 +70,7 @@ class BasicWorldDemo {
 
 
         //her kommer bakken
-        /*const plane = new THREE.Mesh(
+        const plane = new THREE.Mesh(
             new THREE.PlaneGeometry(100, 100, 10, 10),
             new THREE.MeshStandardMaterial({
                 color: 0xFFFFFF,
@@ -90,34 +90,37 @@ class BasicWorldDemo {
         box.receiveShadow = true;
         this._scene.add(box);
 
-*/
+
        //boxesesesese
-        for (let x = -80; x < 80; x++) {
-            for (let y = -80; y < 80; y++) {
+        let kake = 8;
+        for (let x = -kake; x < kake; x++) {
+            for (let y = -kake; y < kake; y++) {
                 const box = new THREE.Mesh(
-                    new THREE.BoxGeometry(5, 5, 5),
+                    new THREE.BoxGeometry(1, 5, 1),
                     new THREE.MeshStandardMaterial({
-                        color: 0x808080,
+                        color: 0xffd700,
                     }));
-                box.position.set(x * 10, 10.0, y * 10);
+                box.position.set(x * 5, 3, y * 5);
                 box.castShadow = true;
                 box.receiveShadow = true;
                 this._scene.add(box);
             }
         }
 
-        // const box = new THREE.Mesh(
-        //   new THREE.SphereGeometry(2, 32, 32),
-        //   new THREE.MeshStandardMaterial({
-        //       color: 0xFFFFFF,
-        //       wireframe: true,
-        //       wireframeLinewidth: 4,
-        //   }));
-        // box.position.set(0, 0, 0);
-        // box.castShadow = true;
-        // box.receiveShadow = true;
-        // this._scene.add(box);
-
+        // Spherererer
+        /*
+         const box = new THREE.Mesh(
+           new THREE.SphereGeometry(4, 32, 32),
+           new THREE.MeshStandardMaterial({
+               color: 0xFFFFFF,
+               wireframe: true,
+               wireframeLineWidth: 4,
+           }));
+         box.position.set(0, 10, 0);
+         box.castShadow = true;
+         box.receiveShadow = true;
+         this._scene.add(box);
+*/
         this._RAF();
     }
 
