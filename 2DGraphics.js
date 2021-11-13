@@ -5,18 +5,17 @@ canvas.height = window.innerHeight;
 
 
 function startThisOrSomething(){
-    //Start size
-    let box = {
-        w: 100,
-        h: 2
-    }
-
     let sColor = "#22ff22";//starter color
     let wheelSpeed = 2; //speed of mousewheel (lower number, means less scrolling (I know I could switch this around, but why not make it confusing and have way to long comments?))
     let height = -400; //just let it be negative, ait, stop judging
     let distApart = 40;
     let reset = 0;
 
+    //Start size
+    let box = {
+        w: 100,
+        h: 2
+    }
     // Find out mouse movement or something
     let mouse = {
         x: null,
@@ -53,7 +52,7 @@ function startThisOrSomething(){
             ctx.fillRect(mouse.x - box.w/2, mouse.y + i, box.w, box.h);
         }
     }
-    function randomColor() {// stjal na fro jossomjod
+    function randomColor() {// stjal na fra jossomjod
         return 'rgb(' + Math.ceil(Math.random() * 255) + ',' + Math.ceil(Math.random() * 255) + ',' + Math.ceil(Math.random() * 255) + ')';
     }
 
