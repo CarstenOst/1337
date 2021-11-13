@@ -18,6 +18,16 @@ function startThisOrSomtehing(){
             mouse.y = event.y + canvas.clientTop/2;
             console.log(mouse.x)
         });
+    window.requestAnimationFrame(function whereTheMagicHappens(){
+        let boxWidth = 100;
+        let boxHeight = 100;
+
+        ctx.clearRect(0,0,canvas.width, canvas.height)
+
+        ctx.fillStyle = "#ffd700"
+        ctx.fillRect(mouse.x - boxWidth/2,mouse.y - boxHeight/2,boxWidth,boxHeight)
+        window.requestAnimationFrame(whereTheMagicHappens)
+    })
 }
 
 
@@ -26,4 +36,5 @@ function startThisOrSomtehing(){
 // start code function goes here blyat!
 document.getElementById('2DShait').addEventListener('click', () => {
     startThisOrSomtehing()
+    document.getElementById('canvas1').style.display = "block"
 });
