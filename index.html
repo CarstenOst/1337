@@ -8,15 +8,50 @@
         body {
             width: 100%;
             height: 100%;
-            position: absolute;
             background: #000000;
-            margin: 0;
-            padding: 0;
+            position: absolute;
             overscroll-behavior: none;
         }
+        *{
+            margin: 0;
+            padding: 0;
+        }/* it works okay, CSS isn't logic based anyway*/
+        .boxShait{
+            background-color: blue;
+            border-radius: 5px;
+            display: inline-flex;
+            width: 5vw;
+            min-width: 100px;
+            max-width: 150px;
+            justify-content: center;
+            padding: 5px;
+            cursor: pointer;
+            margin: 5px;
+        } /* it works okay, CSS isn't logic based anyway*/
+        .absolutVodka{
+            position: absolute;
+            display: inline-flex;
+            justify-content: center;
+            width: 100vw;
+        }
+
     </style>
 </head>
 <body>
+<nav class="absolutVodka">
+    <div id="3DShait" class="boxShait">
+        <div>
+            Lmao, 3D shait
+        </div>
+    </div>
+    <div id="2DShait" class="boxShait">
+        <div>
+            Lmao, 2D shait
+        </div>
+    </div>
+</nav>
+
 <script src="./main.js" type="module"></script>
+
 </body>
 </html>
