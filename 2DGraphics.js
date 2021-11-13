@@ -72,12 +72,24 @@ function startThisOrSomething(){
                 console.log(box);
             }
         });
-
-    window.requestAnimationFrame(function whereTheMagicHappens(){
+    let lastCalledTime;
+    let fps;
+    window.requestAnimationFrame(function update(){
 
         ctx.clearRect(0,0,canvas.width, canvas.height);//clears the rectangles
         verRect();
-        window.requestAnimationFrame(whereTheMagicHappens);//makes it happen pretty much
+
+        window.requestAnimationFrame(update);//makes it happen pretty much
+        if(!lastCalledTime) {
+            lastCalledTime = performance.now();
+            fps = 0;
+            return;
+        }
+        let delta = (performance.now() - lastCalledTime)/1000;
+        lastCalledTime = performance.now();
+        fps = Math.round(1/delta);
+        document.getElementById('fps').innerHTML = "fps: "+ fps;
+
     })
 }
 
