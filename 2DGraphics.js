@@ -15,6 +15,7 @@ function startThisOrSomething(){
     let wheelSpeed = 2; //speed of mousewheel (lower number, means less scrolling (I know I could switch this around, but why not make it confusing and have way to long comments?))
     let height = -400; //just let it be negative, ait, stop judging
     let distApart = 40;
+    let reset = 0;
 
     // Find out mouse movement or something
     let mouse = {
@@ -29,12 +30,21 @@ function startThisOrSomething(){
             mouse.y = event.y + canvas.clientTop/2;
         });
 
-    document.addEventListener('keypress', rotato =>{
-        if (rotato.code === 'Space' ){
+    document.addEventListener('keypress', (kake) =>{
+        rotate(kake)
+    });
+
+    function rotate(kake){
+        if (kake.code === 'Space' && reset === 0){
             box.w = 2; box.h = 100;
+            reset = 1;
+            console.log("spaceship")
+        }else if(kake.code === 'Space' && reset === 1){
+            box.w = 100; box.h = 2;
+            reset = 0;
             console.log("spaceship")
         }
-    });
+    }
 
 
     function verRect(){
