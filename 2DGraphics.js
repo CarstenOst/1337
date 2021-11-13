@@ -30,16 +30,17 @@ function startThisOrSomething(){
             mouse.y = event.y + canvas.clientTop/2;
         });
 
-    document.addEventListener('keypress', (kake) =>{
-        rotate(kake)
+    document.addEventListener('keypress', (keyPress) =>{
+        if(keyPress.code === 'Space'){
+            rotate()
+        }
     });
-
-    function rotate(kake){
-        if (kake.code === 'Space' && reset === 0){
+    function rotate(){
+        if (reset === 0){
             box.w = 2; box.h = 100;
             reset = 1;
             console.log("spaceship")
-        }else if(kake.code === 'Space' && reset === 1){
+        }else if(reset === 1){
             box.w = 100; box.h = 2;
             reset = 0;
             console.log("spaceship")
