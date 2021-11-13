@@ -147,6 +147,7 @@ class BasicWorldDemo {
 let _APP = null;
 
 document.getElementById('3DShait').addEventListener('click', () => {
+    document.getElementById('canvas1').style.display = "none"
     _APP = new BasicWorldDemo();
 });
 
