@@ -106,6 +106,11 @@ class BasicWorldDemo {
                 this._scene.add(box);
             }
         }
+        let kakeee = 1;
+        while (kakeee < 2){
+            console.log("yeet")
+            kakeee++
+        }
 
         // Spherererer
         /*
@@ -141,7 +146,7 @@ class BasicWorldDemo {
 
 let _APP = null;
 
-window.addEventListener('DOMContentLoaded', () => {
+document.getElementById('3DShait').addEventListener('click', () => {
     _APP = new BasicWorldDemo();
 });
 
