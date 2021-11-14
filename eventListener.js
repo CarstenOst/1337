@@ -13,10 +13,37 @@ window.addEventListener('mousemove',
 
 
 //Checks for keypress
+let dig1 = 0;
 document.addEventListener('keypress', (keyPress) =>{
-    if(keyPress.code === 'Space'){
-        rotate()
+    console.log(keyPress.key)
+    switch (keyPress.key){
+        case ' ':
+            rotate();
+            ctx.fillStyle = randomColor();
+            break;
+        case '1':
+            if(dig1 === 0){
+                dig1 = 1;
+            }else {
+                dig1 = 0;
+            }
+            break;
+        case '+':
+            if (reset === 0){
+                box.h += 10;
+            }else {
+                box.w += 10;
+            }
+
+            break;
+        case '-':
+            if (reset === 1){
+                box.w -= 10;
+            }else {
+                box.h -= 10;
+            }
     }
+
 });
 
 // Makes box bigger or smaller depending on mousewheel
@@ -25,24 +52,24 @@ window.addEventListener('mousewheel', // yes I know it's super ugly, but I need 
     if (reset === 0) {
         if (event.deltaY > 0){
         box.w += event.deltaY/wheelSpeed;
-        ctx.fillStyle = randomColor(); //this shit is gold
+        ctx.fillStyle = randomColor();
         console.log(box + '');
     }
     else if (event.deltaY < 0 ){
         box.w += event.deltaY/wheelSpeed;
-        ctx.fillStyle = randomColor(); //makes it blue
+        ctx.fillStyle = randomColor();
         console.log(box);
     }}
-        else if (reset === 1) {
-            if (event.deltaY > 0){
-                box.h += event.deltaY/wheelSpeed;
-                ctx.fillStyle = randomColor(); //this shit is gold
-                console.log(box);
-            }
-            else if (event.deltaY < 0 ){
-                box.h += event.deltaY/wheelSpeed;
-                ctx.fillStyle = randomColor(); //makes it blue
-                console.log(box);
-            }}
+    else if (reset === 1) {
+        if (event.deltaY > 0){
+            box.h += event.deltaY/wheelSpeed;
+            ctx.fillStyle = randomColor();
+            console.log(box);
+        }
+        else if (event.deltaY < 0 ){
+            box.h += event.deltaY/wheelSpeed;
+            ctx.fillStyle = randomColor();
+            console.log(box);
+        }}
 
     });
