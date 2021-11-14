@@ -12,35 +12,37 @@ window.addEventListener('mousemove',
     });
 
 
-//Checks for space keypress
+//Checks for keypress
 document.addEventListener('keypress', (keyPress) =>{
     if(keyPress.code === 'Space'){
         rotate()
     }
-});//rotates
-function rotate(){
-    if (reset === 0){
-        box.w = 2; box.h = 100;
-        reset = 1;
-        console.log("spaceship")
-    }else if(reset === 1){
-        box.w = 100; box.h = 2;
-        reset = 0;
-        console.log("spaceship")
-    }
-}
+});
 
 // Makes box bigger or smaller depending on mousewheel
-window.addEventListener('mousewheel',
+window.addEventListener('mousewheel', // yes I know it's super ugly, but I need breakfast ait, got a problem with that?!?
     function (event){
+    if (reset === 0) {
         if (event.deltaY > 0){
-            box.w += event.deltaY/wheelSpeed;
-            ctx.fillStyle = randomColor(); //this shit is gold
-            console.log(box);
-        }
-        else if (event.deltaY < 0 ){
-            box.w += event.deltaY/wheelSpeed;
-            ctx.fillStyle = randomColor(); //makes it blue
-            console.log(box);
-        }
+        box.w += event.deltaY/wheelSpeed;
+        ctx.fillStyle = randomColor(); //this shit is gold
+        console.log(box + '');
+    }
+    else if (event.deltaY < 0 ){
+        box.w += event.deltaY/wheelSpeed;
+        ctx.fillStyle = randomColor(); //makes it blue
+        console.log(box);
+    }}
+        else if (reset === 1) {
+            if (event.deltaY > 0){
+                box.h += event.deltaY/wheelSpeed;
+                ctx.fillStyle = randomColor(); //this shit is gold
+                console.log(box);
+            }
+            else if (event.deltaY < 0 ){
+                box.h += event.deltaY/wheelSpeed;
+                ctx.fillStyle = randomColor(); //makes it blue
+                console.log(box);
+            }}
+
     });
