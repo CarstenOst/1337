@@ -1,5 +1,5 @@
 function horRect(){//makes the horizontal rectangles
-    for (let i = height; i < height*-1; i = i+distApart){
+    for (let i = height; i < height*-1; i = i + distApart){
         ctx.fillRect(mouse.x - i, mouse.y + i, box.w, box.h);
     }
 }
