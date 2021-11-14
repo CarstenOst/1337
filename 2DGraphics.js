@@ -10,7 +10,7 @@ let height = -1600; //just let it be negative, ait, stop judging
 let distApart = 40;
 //Start size
 let box = {
-    w: 100,
+    w: 2,
     h: 2
 }
 function startThisOrSomething(){
