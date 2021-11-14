@@ -3,12 +3,11 @@ const ctx = canvas.getContext("2d", { alpha: true });
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-
+// I dunno how to do this so, im making tons of global variables, can't hurt right? RIGHT!? Yeah, I know... bad practise
 let sColor = "#22ff22";//starter color
-let wheelSpeed = 2; //speed of mousewheel (lower number, means less scrolling (I know I could switch this around, but why not make it confusing and have way to long comments?))
+let wheelSpeed = 0.1; //speed of mousewheel (lower number, means less scrolling (I know I could switch this around, but why not make it confusing and have way to long comments?))
 let height = -400; //just let it be negative, ait, stop judging
 let distApart = 40;
-let reset = 0;
 //Start size
 let box = {
     w: 100,
