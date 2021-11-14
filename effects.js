@@ -1,6 +1,6 @@
 function horRect(){//makes the horizontal rectangles
     for (let i = height; i < height*-1; i = i+distApart){
-        ctx.fillRect(mouse.x + i, mouse.y + i, box.w, box.h);
+        ctx.fillRect(mouse.x - i, mouse.y + i, box.w, box.h);
     }
 }
 
@@ -8,11 +8,13 @@ function horRect(){//makes the horizontal rectangles
 let reset = 0;//fix na etterkvart, va ganske stygt
 function rotate(){
     if (reset === 0){
-        box.w = 2; box.h = 100;
+        let temp = box.w; //stores value so vars can swap value
+        box.w = box.h; box.h = temp;
         reset = 1;
         console.log("spaceship")
     }else if(reset === 1){
-        box.w = 100; box.h = 2;
+        let temp = box.w;
+        box.w = box.h; box.h = temp;
         reset = 0;
         console.log("spaceship")
     }
