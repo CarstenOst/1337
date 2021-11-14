@@ -21,11 +21,15 @@ document.addEventListener('keypress', (keyPress) =>{
             rotate();
             ctx.fillStyle = randomColor();
             break;
+
+            //if "1" is pressed
         case '1':
             if(dig1 === 0){
                 dig1 = 1;
+                toglRect = 1; // this toggles rectangle effect
             }else {
                 dig1 = 0;
+                toglRect = 0;
             }
             break;
         case '+':
