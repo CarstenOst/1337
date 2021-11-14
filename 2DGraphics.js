@@ -23,9 +23,4 @@ function startThisOrSomething(){
     })
 }
 
-// start code function goes here blyat!
-document.getElementById('2DShait').addEventListener('click', () => {
-    startThisOrSomething();
-    document.getElementById('canvas1').style.display = "block";
-});
 //this is the end, nothing more, just like the shit ending in "I am Legend"

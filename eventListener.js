@@ -73,3 +73,9 @@ window.addEventListener('mousewheel', // yes I know it's super ugly, but I need 
         }}
 
     });
+
+// start code function goes here blyat!
+document.getElementById('2DShait').addEventListener('click', () => {
+    startThisOrSomething();
+    document.getElementById('canvas1').style.display = "block";
+});
