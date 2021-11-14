@@ -13,11 +13,15 @@ let box = {
     w: 2,
     h: 2
 }
+let toglRect = 0;
 function startThisOrSomething(){
     ctx.fillStyle = sColor;
     window.requestAnimationFrame(function update(){//makes it happen pretty much
         ctx.clearRect(0,0,canvas.width, canvas.height);//clears the rectangles
-        horRect();
+        if (toglRect === 1){
+            horRect();
+        }
+
         FPS();
         window.requestAnimationFrame(update);
     })
