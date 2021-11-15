@@ -13,7 +13,6 @@ window.addEventListener('mousemove',
 
 
 //Checks for keypress
-let dig1 = 0;
 document.addEventListener('keypress', (keyPress) =>{
     console.log(keyPress.key)
     switch (keyPress.key){
@@ -24,11 +23,9 @@ document.addEventListener('keypress', (keyPress) =>{
 
             //if "1" is pressed
         case '1':
-            if(dig1 === 0){
-                dig1 = 1;
+            if(toglRect === 0){
                 toglRect = 1; // this toggles rectangle effect
             }else {
-                dig1 = 0;
                 toglRect = 0;
             }
             break;
