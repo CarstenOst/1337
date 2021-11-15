@@ -2,7 +2,7 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.118/build/three.mod
 
 import {OrbitControls} from 'https://cdn.jsdelivr.net/npm/three@0.118/examples/jsm/controls/OrbitControls.js';
 
-
+//code made by simondev
 class BasicWorldDemo {
     constructor() {
         this._Initialize();
@@ -28,10 +28,11 @@ class BasicWorldDemo {
         const near = 1.0;
         const far = 1000.0;
         this._camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-        this._camera.position.set(75, 20, 0);
+        this._camera.position.set(75, 10, 0);
 
         this._scene = new THREE.Scene();
 
+        //lys og sånn (sånn = skygger)
         let light = new THREE.DirectionalLight(0xFFFFFF, 1.0);
         light.position.set(20, 20, 10);
         light.target.position.set(0, 0, 0);
@@ -71,26 +72,36 @@ class BasicWorldDemo {
 
         //her kommer bakken
         const plane = new THREE.Mesh(
-            new THREE.PlaneGeometry(100, 100, 10, 10),
+            new THREE.PlaneGeometry(100, 100, 10, 10), //størrelsen til bakken
             new THREE.MeshStandardMaterial({
-                color: 0xFFFFFF,
+                color: 0x222222, //fargen til "bakken"
             }));
-        plane.castShadow = false;
-        plane.receiveShadow = true;
-        plane.rotation.x = -Math.PI / 2;
+        plane.castShadow = false; //åpenbart
+        plane.receiveShadow = true; // les kommentaren ovenfor
+        plane.rotation.x = -Math.PI / 2; //roterer bakken slik at den ikke er stående, men blir liggende (horisontalt)
         this._scene.add(plane);
 
 
+        const box = new THREE.Mesh
        //boxesesesese
         let kake = 8;
+        //box dimentions
+        let boxHeight = 5;
+        let boxWidth = 1;
+
+
+        //box positions
+        let distance = 5;
+        let posHeight = boxHeight/2; //makes the boxes always touch the ground/plane mesh
+        //something, i dunno, maybe it draws the boxes. Wait yes, that`s what it does :)
         for (let x = -kake; x < kake; x++) {
             for (let y = -kake; y < kake; y++) {
                 const box = new THREE.Mesh(
-                    new THREE.BoxGeometry(1, 5, 1),
+                    new THREE.BoxGeometry(boxWidth, boxHeight, boxWidth),
                     new THREE.MeshStandardMaterial({
                         color: 0xffd700,
                     }));
-                box.position.set(x * 5, 3, y * 5);
+                box.position.set(x * distance, posHeight, y * distance);
                 box.castShadow = true;
                 box.receiveShadow = true;
                 this._scene.add(box);
