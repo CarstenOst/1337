@@ -20,6 +20,18 @@ document.addEventListener('keypress', (keyPress) =>{
             rotate();
             ctx.fillStyle = randomColor();
             break;
+        case '9':
+            if (height <= -1){ // it works okay? OKAY?
+                height += 100;
+                console.log(height)
+            }
+            break;
+        case '0':
+            if (height <= 0){
+                height -= 100;
+                console.log(height)
+            }
+            break;
 
             //if "1" is pressed
         case '1':
@@ -29,14 +41,15 @@ document.addEventListener('keypress', (keyPress) =>{
                 toglRect = 0;
             }
             break;
+            // I like it being positive
         case '+':
             if (reset === 0){
                 box.h += 10;
             }else {
                 box.w += 10;
             }
-
             break;
+            // stop being so negative
         case '-':
             if (reset === 1){
                 box.w -= 10;
