@@ -10,7 +10,7 @@ function rotate(){
     if (reset === 0){
         let temp = box.w; //stores value so vars can swap value
         box.w = box.h; box.h = temp;
-        reset = 1;
+        reset++;
         console.log("spaceship")
     }else if(reset === 1){
         let temp = box.w;
@@ -33,6 +33,7 @@ function FPS(){
     lastCalledTime = performance.now();
     fps = Math.round(1/delta);
     document.getElementById('fps').innerHTML = "fps: "+ fps;
+
 }
 
 //random color
