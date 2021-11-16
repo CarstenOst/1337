@@ -4,6 +4,11 @@ function horRect(){//makes the horizontal rectangles
     }
 }
 
+function strobeL(){
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
 //rotates
 let reset = 0;//fix na etterkvart, va ganske stygt
 function rotate(){
