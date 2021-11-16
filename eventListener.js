@@ -41,6 +41,13 @@ document.addEventListener('keypress', (keyPress) =>{
                 toglRect = 0;
             }
             break;
+        case '2':
+            if(toglStrobe === 0){
+                toglStrobe = 1; // this toggles rectangle effect
+            }else {
+                toglStrobe = 0;
+            }
+            break;
             // I like it being positive
         case '+':
             if (reset === 0){
