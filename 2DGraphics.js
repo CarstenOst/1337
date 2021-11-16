@@ -14,10 +14,15 @@ let box = {
     h: 2
 }
 let toglRect = 0;
+let toglStrobe = 0;
 function startThisOrSomething(){
     ctx.fillStyle = sColor;
     window.requestAnimationFrame(function update(){//makes it happen pretty much
         ctx.clearRect(0,0,canvas.width, canvas.height);//clears the rectangles
+
+        if (toglStrobe === 1){
+            strobeL();
+        }
         if (toglRect === 1){
             horRect();
         }
