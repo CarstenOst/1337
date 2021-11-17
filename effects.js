@@ -1,12 +1,16 @@
 function horRect(){//makes the horizontal rectangles
     for (let i = height; i < height*-1; i = i + distApart){
-        ctx.fillRect(mouse.x - i, mouse.y + i, box.w, box.h);
+        void ctx.fillRect(mouse.x - i, mouse.y + i, box.w, box.h);
     }
 }
 
 function strobeL(){
+    // noinspection JSAnnotator
     ctx.fillStyle = "#ffffff";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    void ctx.fillRect(0, 0, 1, canvas.height);
+    void ctx.arc(0, 0, 10, 0, 360 , false);
+
+
 }
 
 //rotates
