@@ -21,7 +21,7 @@ function startThisOrSomething(){
         ctx.clearRect(0,0,canvas.width, canvas.height);//clears the rectangles
 
         if (toglStrobe === 1){
-            strobeL();
+            uptoDate();
         }
         if (toglRect === 1){
             horRect();
