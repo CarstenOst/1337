@@ -11,7 +11,7 @@ const ctx1 = canvas1.getContext("2d", { alpha: true }); //speedy if false / howe
 
 // I dunno how to do this so, im making tons of global variables, can't hurt right? RIGHT!? Yeah, I know... bad practise, or is it?
 let sColor = "#22ff22";//starter color
-let wheelSpeed = 0.1; //speed of mousewheel (lower number, means less scrolling (I know I could switch this around, but why not make it confusing and have way to long comments?))
+let wheelSpeed = 0.5; //speed of mousewheel (lower number, means less scrolling (I know I could switch this around, but why not make it confusing and have way to long comments?))
 let height = -1600; //just let it be negative, ait, stop judging
 let distApart = 40;
 //Start size
@@ -22,12 +22,16 @@ let box = {
 
 let toglRect = 0;
 let toglStrobe = 0;
+
+let oogaBoogaAniMation; // The requestAnimationFrame made togglable in eventlistener at the bottom :/
+let toglClearCanvas = 1; // toggle to clear canvas, usfull for painting. Press "p" to use
 function startThisOrSomething(){
     ctx.fillStyle = sColor;
     window.requestAnimationFrame(function update(){//makes it happen pretty much
-        ctx.clearRect(0,0,canvas.width, canvas.height);//clears the rectangles
-
-        ctx1.clearRect(0,0,canvas.width, canvas.height);//clears the rectangles
+        if (toglClearCanvas === 1) {
+            ctx.clearRect(0,0,canvas.width, canvas.height);
+            ctx1.clearRect(0,0,canvas.width, canvas.height)
+        }
         canvas1.width = window.innerWidth;
         canvas1.height = window.innerHeight;
 
@@ -39,7 +43,7 @@ function startThisOrSomething(){
         }
 
         FPS();
-        window.requestAnimationFrame(update);
+        oogaBoogaAniMation = window.requestAnimationFrame(update);
     })
 }
 
