@@ -4,13 +4,20 @@ function horRect(){//makes the horizontal rectangles
     }
 }
 
-
+// STROBE
+let NumberOfTimesStrobeIsCalled = 1; // it works, pls help me stop using globals, i dont like it, so im using waaay to long name
 function strobe(){
-    ctx1.fillStyle = "#fff";
-    ctx1.fillRect(0, 0, canvas.width, canvas.height);
-    //strobe effect
+    NumberOfTimesStrobeIsCalled++
+    if (NumberOfTimesStrobeIsCalled < strobeInt){
+        ctx1.fillStyle = "#fff";
+        ctx1.fillRect(0, 0, canvas.width, canvas.height);
 
-}
+    }else if (NumberOfTimesStrobeIsCalled > strobeInt*2){
+        ctx1.fillStyle = "#000";
+        ctx1.fillRect(0, 0, canvas.width, canvas.height);
+        NumberOfTimesStrobeIsCalled = -2;
+    }
+} // END STROBE
 
 
 
