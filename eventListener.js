@@ -70,11 +70,12 @@ document.addEventListener('keypress', (keyPress) =>{
 // Makes box bigger or smaller depending on mousewheel
 window.addEventListener('mousewheel', // yes I know it's super ugly, but I need breakfast ait, got a problem with that?!?
     function (event){
+    // WET: We Elsker Trepitisjon (Du klarer ikke bedre selv)
     if (reset === 0) {
         if (event.deltaY > 0){
         box.w += event.deltaY/wheelSpeed;
         ctx.fillStyle = randomColor();
-        console.log(box + '');
+        console.log(box);
     }
     else if (event.deltaY < 0 ){
         box.w += event.deltaY/wheelSpeed;
