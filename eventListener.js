@@ -63,6 +63,16 @@ document.addEventListener('keypress', (keyPress) =>{
             }else {
                 box.h -= 10;
             }
+            break;
+
+        case 'p':
+            if (toglClearCanvas === 1){
+                toglClearCanvas = 0;
+            }else{
+                toglClearCanvas = 1;
+            }
+
+            break;
     }
 
 });
@@ -97,7 +107,18 @@ window.addEventListener('mousewheel', // yes I know it's super ugly, but I need 
     });
 
 // start code function goes here blyat!
+let kakeMannLangVarFor = 0;
 document.getElementById('2DShait').addEventListener('click', () => {
-    startThisOrSomething();
+
+    if (kakeMannLangVarFor === 0) {
+        kakeMannLangVarFor++;
+        startThisOrSomething();
+        console.log(kakeMannLangVarFor)
+    }else {
+        kakeMannLangVarFor = 0;
+        console.log("else")
+        window.cancelAnimationFrame(oogaBoogaAniMation);
+    }
+
     document.getElementById('canvas1').style.display = "block";
 });
