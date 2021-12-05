@@ -52,16 +52,20 @@ document.addEventListener('keypress', (keyPress) =>{
         case '+':
             if (reset === 0){
                 box.h += 10;
+                strobeInt++;
             }else {
                 box.w += 10;
+                strobeInt++;
             }
             break;
             // stop being so negative
         case '-':
             if (reset === 1){
                 box.w -= 10;
+                strobeInt--;
             }else {
                 box.h -= 10;
+                strobeInt--;
             }
             break;
 
