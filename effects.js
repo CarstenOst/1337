@@ -5,10 +5,13 @@ function horRect(){//makes the horizontal rectangles
 }
 
 
-function uptoDate(){
-    ctx1.fillStyle = fade(255, 0, 10);
+function strobe(){
+    ctx1.fillStyle = "#fff";
     ctx1.fillRect(0, 0, canvas.width, canvas.height);
+    //strobe effect
+
 }
+
 
 
 //rotates
