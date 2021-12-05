@@ -14,6 +14,7 @@ let sColor = "#22ff22";//starter color
 let wheelSpeed = 0.5; //speed of mousewheel (lower number, means less scrolling (I know I could switch this around, but why not make it confusing and have way to long comments?))
 let height = -1600; //just let it be negative, ait, stop judging
 let distApart = 40;
+let strobeInt = 4; // Strobe, lower number is faster strobe. Yes IK should be other way around, well you can't always have it your way... This is for learning purposes only anyway
 //Start size
 let box = {
     w: 2,
