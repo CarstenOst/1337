@@ -15,7 +15,7 @@ function horRect(distanceBetween){//makes the horizontal rectangles
     }
 
     else if (reset === 1){//only horizontal lines/dots
-        if (startAnim > canvas.width){ //resets animation
+        if (startAnim > canvas.width+amount*40){ //resets animation
             startAnim = 0;
             if (animToggleStuffNotActualToggle === 0){
                 if (amount<25){
@@ -34,17 +34,16 @@ function horRect(distanceBetween){//makes the horizontal rectangles
                 }
             }
         }
-        for (let i = amount; i > 0; i--){ // draws horisontal lines
-            let amountX = amount;
-            for (i = amountX; i>0; i--) {
-                ctx.fillRect(startAnim , canvas.height/2 - centered + addXpos, box.h, box.w);
+        for (let x = amount; x > 0; x--){ // draws horisontal lines
+            let incre = 40;
+            for (let y = amount; y > 0; y--) { // draws vertical lines
+                ctx.fillRect(-amount*incre + startAnim + incre*x - box.h, canvas.height/2 - centered + addXpos, box.h, box.w);
                 addXpos += distanceBetween;
             }
-
-            addXpos += distanceBetween;
+            addXpos -= addXpos
+            console.log(x)
         }
         startAnim += velocity;
-
     }
 }
 //0 20
